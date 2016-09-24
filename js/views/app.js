@@ -6,7 +6,7 @@ var app = app || {};
 //---------------
 
 //Our overall **AppView** s the top-level piece of UI.
-app.AppView = Backabone.View.extend({
+app.AppView = Backbone.View.extend({
 
 	//Instead of generating a new element, bind to the existing skeleton of
 	//the App already present in the HTML.
@@ -79,7 +79,7 @@ app.AppView = Backabone.View.extend({
 	addAll: function(){
 		this.$('#todo-list').html('');
 		app.Todos.each(this.addOne, this);
-	}
+	},
 
 	filterOne: function(todo){
 		todo.trigger('visible');
@@ -87,7 +87,7 @@ app.AppView = Backabone.View.extend({
 
 	filterAll: function(){
 		app.Todos.each(this.filterOne, this);
-	}
+	},
 
 	//Generate the attributes for a new Todo item.
 	newAttributes: function(){
@@ -120,7 +120,7 @@ app.AppView = Backabone.View.extend({
 
 		app.Todos.each(function(todo){
 			todo.save({
-				'completed': completed;
+				'completed': completed
 			});
 		});
 	}
